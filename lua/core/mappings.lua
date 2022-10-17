@@ -20,23 +20,14 @@ M.general = {
   },
 
   n = {
-    ["<ESC>"] = { "<cmd> noh <CR>", "no highlight" },
-
     -- switch between windows
     ["<C-h>"] = { "<C-w>h", "window left" },
     ["<C-l>"] = { "<C-w>l", "window right" },
     ["<C-j>"] = { "<C-w>j", "window down" },
     ["<C-k>"] = { "<C-w>k", "window up" },
 
-    -- save
-    ["<C-s>"] = { "<cmd> w <CR>", "save file" },
-
     -- Copy all
     ["<C-c>"] = { "<cmd> %y+ <CR>", "copy whole file" },
-
-    -- line numbers
-    ["<leader>n"] = { "<cmd> set nu! <CR>", "toggle line number" },
-    ["<leader>rn"] = { "<cmd> set rnu! <CR>", "toggle relative number" },
 
     -- update nvchad
     ["<leader>uu"] = { "<cmd> :NvChadUpdate <CR>", "update nvchad" },
@@ -58,7 +49,7 @@ M.general = {
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
 
     -- new buffer
-    ["<leader>b"] = { "<cmd> enew <CR>", "new buffer" },
+    -- ["<leader>b"] = { "<cmd> enew <CR>", "new buffer" },
   },
 
   t = { ["<C-x>"] = { termcodes "<C-\\><C-N>", "escape terminal mode" } },
@@ -114,7 +105,7 @@ M.comment = {
 
   -- toggle comment in both modes
   n = {
-    ["<leader>/"] = {
+    ["<C-_>"] = {
       function()
         require("Comment.api").toggle.linewise.current()
       end,
@@ -123,7 +114,7 @@ M.comment = {
   },
 
   v = {
-    ["<leader>/"] = {
+    ["<C-_>"] = {
       "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
       "toggle comment",
     },
@@ -262,7 +253,7 @@ M.nvimtree = {
 
   n = {
     -- toggle
-    ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+    ["<leader>pv"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
 
     -- focus
     ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "focus nvimtree" },
@@ -280,11 +271,11 @@ M.telescope = {
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "help page" },
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "find oldfiles" },
-    ["<leader>tk"] = { "<cmd> Telescope keymaps <CR>", "show keys" },
+    ["<leader>sk"] = { "<cmd> Telescope keymaps <CR>", "show keys" },
 
     -- git
     ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
-    ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "git status" },
+    ["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "git status" },
 
     -- pick a hidden term
     ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "pick hidden term" },

@@ -48,6 +48,10 @@ opt.updatetime = 250
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append "<>[]hl"
 
+-- line number
+opt.number = true
+opt.relativenumber = true
+
 g.mapleader = " "
 
 -- disable some builtin vim plugins
